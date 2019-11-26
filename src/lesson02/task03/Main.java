@@ -17,12 +17,13 @@ import java.util.Scanner;
  * Предусмотреть генерацию исходного массива (10000 элементов и более).
  * Если имена людей и возраст совпадают, выбрасывать в программе пользовательское исключение.
  */
-
+// нет генериацией исключения при дублирующихся Person
 public class Main {
     public static void main(String[] args) {
         /**
          * создаем список Person
          */
+        // переменные необходимо объявлять как можно ближе к месту использования
         List<Person> persons = new ArrayList<>();
         List<Person> personscopy = new ArrayList<>();
         /**
@@ -69,6 +70,8 @@ public class Main {
          * stopTime - конечное время
          * periodTime - разница
          */
+        // в этом задании не просто так просят ввести интерфейс.
+        // как можно испольуя его избавиться от дублирования кода ниже?
         InsertionSort isort = new InsertionSort();
         BubbleSort bsort = new BubbleSort();
 

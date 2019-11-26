@@ -7,6 +7,7 @@ import java.util.List;
  * класс MathBox
  * numberList - коллекция
  */
+// нет проверки на то, что нет дубликатов
 public class MathBox {
     private List<Number> numberList = new ArrayList<Number>();
 
@@ -16,6 +17,7 @@ public class MathBox {
         }
     }
 
+    // мёртвый код
     public void setNumbers(List<Number> numberList) {
         this.numberList = numberList;
     }
@@ -89,6 +91,7 @@ public class MathBox {
      */
     @Override
     public int hashCode() {
+        // что будет если мы используем MathBox в качестве ключа в мапе, а затем вызовем например splitter ?
         int z = 37;
         double result = 0.0;
         for (int i = 0; i < numberList.size(); i++) {

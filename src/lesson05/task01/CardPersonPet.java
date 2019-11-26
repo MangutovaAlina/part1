@@ -32,6 +32,7 @@ public class CardPersonPet {
      */
     public void addCardPet(Pet pet) throws MyException {
         if (petSearchAll(pet) != null) {
+            //код вывода ошибки должен быть не здесь
             System.out.println("Такое животное уже существует");
             throw new MyException();
         } else {
@@ -45,6 +46,7 @@ public class CardPersonPet {
      * @param petId     - идентификатор, по которому ищем питомца
      * @param petUpdate - карточка питомца, на которую нужно заменить найденную
      */
+    // зачем передавать явно petId?
     public void updateCardPet(int petId, Pet petUpdate) {
         if (petSearchId(petId) != null) {
             Pet pet = petSearchId(petId);
@@ -52,6 +54,7 @@ public class CardPersonPet {
             pet.setPetOwner(petUpdate.getPetOwner());
             pet.setPetWeight(petUpdate.getPetWeight());
         } else {
+            // Это исключительная ситуация, правильнее кидать исключение
             System.out.println("Питомец с id " + petId + " не найден");
         }
     }
@@ -62,6 +65,7 @@ public class CardPersonPet {
      * @param petInput - на вход подаем искомого питомца
      * @return - возвращаем питомца или null
      */
+    // используйте наиболее строгий модиикатор доступа
     public Pet petSearchAll(Pet petInput) {
         Iterator iterator = cardsPet.iterator();
         while (iterator.hasNext()) {
@@ -80,6 +84,7 @@ public class CardPersonPet {
      * @param idPet - на вход подаем идентификатор питомца
      * @return - возвращаем питомца или null
      */
+    // возвращать null - верный способ нажить себе врагов, правильнее использовать Optional
     public Pet petSearchId(int idPet) {
         Iterator iterator = cardsPet.iterator();
         while (iterator.hasNext()) {
@@ -104,6 +109,7 @@ public class CardPersonPet {
         Iterator iterator = cardsPet.iterator();
         while (iterator.hasNext()) {
             Pet pet = (Pet) iterator.next();
+            // использовать == при сравнении строк опасно
             if (pet.getPetName() == namePet) {
                 listPet.add(pet);
             }

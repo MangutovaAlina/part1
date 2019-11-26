@@ -66,6 +66,7 @@ public class ObjectBox {
      * @param object - объект, который сраниваем
      * @return
      */
+    // во втором задании про equals ничего не говорили
     @Override
     public boolean equals(Object object) {
         if (this == object) {
