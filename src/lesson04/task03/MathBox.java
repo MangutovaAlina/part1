@@ -3,6 +3,8 @@ package lesson04.task03;
 import java.util.ArrayList;
 import java.util.List;
 
+// на консультации поговорим о проблемах такой реализации наследования.
+// Пока рекомендую предаорительно проситать про принцип подстановки Лисков
 public class MathBox extends ObjectBox {
     private List<Number> numberList = new ArrayList<Number>();
 

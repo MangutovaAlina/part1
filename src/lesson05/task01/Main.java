@@ -63,6 +63,7 @@ public class Main {
 
         /** ищем питомца по имени  */
         String petName = "Vasya";
+        // закомментированный код не долж
         //String petName = "BlaBla";
 
         List<Pet> listPet = cardPersonPet.petSearchName(petName);
