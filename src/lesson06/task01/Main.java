@@ -14,8 +14,9 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<String> strFileList = new ArrayList<>();
 
-        String path = "C:\\tmp_inn\\lesson06";
-        strFileList = readFromFile(path + "\\input.txt");
+        // это конечно хорошо, но у меня мак)) лучше было бы приложить ваш тестовый фаил  закинуть тоже в проект и дописать до него относительный путь
+        String path = "";
+        strFileList = readFromFile(path + "input.txt");
 
         /** сортируем лист строчек
          */
@@ -37,12 +38,14 @@ public class Main {
      * @param txtFileName - имя файла
      * @return - возвращаем ArrayList из строчек
      */
+    // лучше использовать интерфейсы в возвращаемых параметрах
     public static ArrayList<String> readFromFile(String txtFileName) {
         ArrayList<String> result = new ArrayList<>();
 
         try (BufferedReader buffReader = new BufferedReader(new InputStreamReader(new FileInputStream(txtFileName)))) {
             String lineFromFile = null;
 
+            //так он считывает строки, а не слова
             while ((lineFromFile = buffReader.readLine()) != null) {
                 result.add(lineFromFile);
             }

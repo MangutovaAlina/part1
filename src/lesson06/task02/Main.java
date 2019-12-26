@@ -27,7 +27,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         String[] words = new String[1000];
-        String path = "C:\\tmp_inn\\lesson06";   // путь до файлов
+        String path = "";   // путь до файлов
         int probability = 4;                         // вероятность
         int countfile = 10;                          // кол-во файлов
         int size = 5000;                         // размер файла
@@ -41,6 +41,7 @@ public class Main {
         getFiles(path, countfile, size, words, probability);
     }
 
+    //внимательно следите за модификаторами доступа. Вам не нужно делать этот метод public
     public static void getFiles(String path, int n, int size, String[] words, int probability) throws IOException {
         String filename = "examp";
         Path dirpath = Paths.get(path);
@@ -75,6 +76,7 @@ public class Main {
                      */
                     outputfile.write('\t');
 
+                    // что такое 20, что такое 15, что такое 12? Все числовые значения нужно выносить в именованые константы
                     for (int i = 1; i <= 20; i++) {
                         sentprob = 0;
                         if ((i % probability) == 0) {
@@ -105,6 +107,7 @@ public class Main {
      * @param word - слово
      * @return - слово с заглавной первой буквой
      */
+    // старайтесь размещать функции так, чтобы используемые были под использующими
     public static String firstUpperCase(String word) {
         if (word == null || word.isEmpty()) return "";
         return word.substring(0, 1).toUpperCase() + word.substring(1);
@@ -135,11 +138,13 @@ public class Main {
      * @param words      - массив слов
      * @return - возвращаем предложение
      */
+    // Первое - если sentprob это флаг, то лучше использовать boolean, второе, если вам нужно передавать в функцию флаг, то скорее всего её лучше разделить на две разные функции
     public static StringBuilder randomCreateSentences(int sentlength, int sentprob, String[] words) {
         StringBuilder sentences = new StringBuilder();
         String sign = ".!?";
 
         for (int i = 0; i <= sentlength; i++) {
+            // логично это вынести за пределы цыкла. Зачем нам сколько-=то раз проверять, что i == 0, rjulf 'nj e;t ,eltn yt nfr
             if (i == 0) {
                 /** первое слово начинается с заглавной буквы
                  */
