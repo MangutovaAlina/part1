@@ -64,6 +64,7 @@ public class Main {
 
         threadExPool.shutdown();
 
+        //это нам ничего не даёт, ведь потоки продолжат выполнятся. Надо подождать завершения всех фьючеров
         System.out.println(" Время = " + (System.currentTimeMillis() - startTime));
 
     }
