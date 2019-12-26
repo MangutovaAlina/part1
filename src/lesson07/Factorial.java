@@ -9,10 +9,12 @@ public class Factorial {
      * создаем структуру для хранения подсчетов факториала
      * вида (число, факториал)
      */
+    // почему именно эту коллекцию?
     private static ConcurrentNavigableMap<Integer, BigInteger> factorialMap = new ConcurrentSkipListMap<>();
 
     public BigInteger calculationFactorial(int inputNumber) {
         int beginNumber = 1;
+        //не очень нужная переменная)
         int endNumber = inputNumber;
         BigInteger bigInteger = BigInteger.valueOf(beginNumber);
 
