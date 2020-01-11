@@ -74,6 +74,7 @@ public class RoleDAO implements TableDAO<Role> {
                         resultSet.getInt(1),
                         resultSet.getString(2),
                         resultSet.getString(3));
+                // можно просто Optional.of(), мы же прямо тут инициализируем.
                 return Optional.ofNullable(role);
             }
         } catch (SQLException e) {

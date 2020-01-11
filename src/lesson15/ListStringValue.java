@@ -8,6 +8,7 @@ import java.util.Random;
 /**
  * класс для формирования списка значений для таблицы
  */
+// лучше такие классы называть с суффиксом Utils типа TestDataUtils
 public class ListStringValue {
 
     static final Random r = new Random();
