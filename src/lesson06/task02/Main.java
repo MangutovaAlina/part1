@@ -23,7 +23,9 @@ import java.util.Random;
  */
 
 public class Main {
+
     static final Random r = new Random();
+    private static final int QUANTITY_WORD_IN_SENTENCE = 15;
 
     public static void main(String[] args) throws Exception {
         final int quantityCharInWord = 15;         // предельное количество символов в слове
@@ -53,7 +55,6 @@ public class Main {
      * @throws IOException
      */
     private static void getFiles(String path, int n, int size, String[] words, int probability) throws IOException {
-        final int quantityWordInSentence = 15;     // предельное количество словв предложении
         final int quantitySentenceInParagraf = 20; // предельное количество предложений в абзаце
 
         String filename = "examp";
@@ -94,7 +95,7 @@ public class Main {
                         /** заносим в абзац предложение
                          *  strtofile - предложение
                          */
-                        strtofile = randomCreateSentences(r.nextInt(quantityWordInSentence), sentprob, words).toString();
+                        strtofile = randomCreateSentences(r.nextInt(QUANTITY_WORD_IN_SENTENCE), sentprob, words).toString();
                         byte[] bytefile = strtofile.getBytes();
                         outputfile.write(bytefile);
 
